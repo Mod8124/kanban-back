@@ -6,13 +6,10 @@ export type TaskDocument = HydratedDocument<Task>;
 @Schema()
 export class Task {
   @Prop({ required: true })
-  name: string;
+  column: string;
 
   @Prop({ required: true })
-  description: string;
-
-  @Prop({ required: false, default: false })
-  state: boolean;
+  board: string;
 }
 
 export const TaskSchema = SchemaFactory.createForClass(Task);

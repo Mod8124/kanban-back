@@ -1,11 +1,15 @@
 import { Controller, Get, Post } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { TaskService } from '../service/task.service';
 
 @ApiTags('Task')
 @Controller('task')
 export class TaskController {
   constructor(private taskService: TaskService) {}
+
+  @ApiOperation({
+    summary: 'Get all task',
+  })
   @Get()
   getALlTask() {
     return this.taskService.getAllTask();
